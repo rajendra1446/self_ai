@@ -7,7 +7,7 @@ const groq = createGroq({ apiKey: process.env.GROQ_API_KEY });
 export async function POST(req: Request) {
   const { messages } = await req.json();
   const result = streamText({
-    model: groq('llama-3.3-70b-versatile'),
+    model: groq('openai/gpt-oss-120b'),
     messages,
   });
   return result.toTextStreamResponse();
